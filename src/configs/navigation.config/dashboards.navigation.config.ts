@@ -1,4 +1,4 @@
-import { DASHBOARDS_PREFIX_PATH } from '@/constants/route.constant'
+import { FINAL_PREFIX_PATH } from '@/constants/route.constant'
 import {
     NAV_ITEM_TYPE_TITLE,
     NAV_ITEM_TYPE_ITEM,
@@ -9,9 +9,9 @@ import type { NavigationTree } from '@/@types/navigation'
 
 const dashboardsNavigationConfig: NavigationTree[] = [
     {
-        key: 'dashboard',
+        key: 'final',
         path: '',
-        title: 'Dashboard',
+        title: 'Final',
         translateKey: 'nav.dashboard.dashboard',
         icon: 'dashboard',
         type: NAV_ITEM_TYPE_COLLAPSE,
@@ -24,10 +24,10 @@ const dashboardsNavigationConfig: NavigationTree[] = [
         subMenu: [
 
             {
-                key: 'dashboard.Home',
-                path: `${DASHBOARDS_PREFIX_PATH}/Home`,
+                key: 'final.Home',
+                path: `${FINAL_PREFIX_PATH}/Result`,
                 title: 'Result',
-                translateKey: 'nav.dashboard.Home',
+                translateKey: 'nav.final.Home',
                 icon: 'dashboardEcommerce',
                 type: NAV_ITEM_TYPE_ITEM,
                 authority: [ADMIN, USER],
