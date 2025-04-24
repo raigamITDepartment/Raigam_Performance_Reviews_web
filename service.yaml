@@ -1,0 +1,75 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  annotations:
+    run.googleapis.com/client-name: cloud-console
+    run.googleapis.com/ingress: all
+    run.googleapis.com/ingress-status: all
+    run.googleapis.com/minScale: '1'
+    run.googleapis.com/operation-id: 3f331c75-c3ce-4540-b2db-0880421755df
+    run.googleapis.com/urls: '["https://react-app-711667297937.asia-south1.run.app"]'
+    serving.knative.dev/creator: raigammarketingservices@gmail.com
+    serving.knative.dev/lastModifier: raigammarketingservices@gmail.com
+  creationTimestamp: '2025-04-18T05:43:09.510547Z'
+  generation: 4
+  labels:
+    cloud.googleapis.com/location: asia-south1
+    run.googleapis.com/satisfiesPzs: 'true'
+  name: react-app
+  namespace: '711667297937'
+  resourceVersion: AAYzGtGZ4y0
+  selfLink: /apis/serving.knative.dev/v1/namespaces/711667297937/services/react-app
+  uid: aa949893-0b01-4223-ade8-9d53a73969c5
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/maxScale: '100'
+        run.googleapis.com/client-name: cloud-console
+        run.googleapis.com/startup-cpu-boost: 'true'
+      labels:
+        client.knative.dev/nonce: 3217ba67-cfa7-4989-b40d-39f26e4979a8
+        run.googleapis.com/startupProbeType: Default
+    spec:
+      containerConcurrency: 80
+      containers:
+      - image: asia-south1-docker.pkg.dev/raigam-sfa-456406/sfaweb/react-app@sha256:ca8710699f2cfcb6d2f09444a983f1c289028d4765624f00dea5a914c918ff1b
+        name: react-app-1
+        ports:
+        - containerPort: 8080
+          name: http1
+        resources:
+          limits:
+            cpu: 4000m
+            memory: 2Gi
+        startupProbe:
+          failureThreshold: 15
+          periodSeconds: 10
+          tcpSocket:
+            port: 8080
+          timeoutSeconds: 20
+      serviceAccountName: 711667297937-compute@developer.gserviceaccount.com
+      timeoutSeconds: 600
+  traffic:
+  - latestRevision: true
+    percent: 100
+status:
+  conditions:
+  - lastTransitionTime: '2025-04-19T05:22:18.871549Z'
+    message: Revision 'react-app-00004-9vv' is not ready and cannot serve traffic.
+      Container failed to become healthy.
+    reason: HealthCheckContainerError
+    status: 'False'
+    type: Ready
+  - lastTransitionTime: '2025-04-19T05:22:18.872307Z'
+    message: Container failed to become healthy.
+    status: 'True'
+    type: ConfigurationsReady
+  - lastTransitionTime: '2025-04-19T05:22:18.871549Z'
+    message: Revision 'react-app-00004-9vv' is not ready and cannot serve traffic.
+      Container failed to become healthy.
+    reason: HealthCheckContainerError
+    status: 'False'
+    type: RoutesReady
+  latestCreatedRevisionName: react-app-00004-9vv
+  observedGeneration: 4
